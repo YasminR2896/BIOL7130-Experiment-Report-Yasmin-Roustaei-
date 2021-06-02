@@ -192,13 +192,17 @@ pre code {
 <div id="results" class="section level2">
 <h2>Results</h2>
 <p>There is a significant relationship between allelic richness (AR) and mountain elevation (Linear regression: Df=1,11, R2=0.59, P=0.0022), with allelic richness increasing with higher elevation (Figure 1). Therefore, I reject the null hypothesis that the linear relationship between allelic richness and elevation is equal to 0. A 95% confidence interval for the slope is (+/- 0.111, 0.074). A post hoc priori power analysis on allelic richness (Power=0.90), showed that an adequate number of replicates were used in this experiment.</p>
+<blockquote>
 <p>View(Lizard_data) plot(Lizard_data<span class="math inline">\(Elevation,Lizard_data\)</span>AR, xlab='Elevation',ylab='AR',col='green') plot(Lizard_data<span class="math inline">\(Elevation,Lizard_data\)</span>AR, xlab='Elevation (m)',ylab='AR',col='green') abline(Lizard_data<span class="math inline">\(Elevation,Lizard_data\)</span>AR) mymodel&lt;-lm(Elevation<sub>AR,data=Lizard_data) mymodel&lt;-lm(Elevation</sub>AR,data=Lizard_data) abline(mymodel) anova(mymodel) summary(mymodel)</p>
+</blockquote>
 </div>
 <div id="figure-1-caption" class="section level2">
 <h2>Figure 1 Caption</h2>
 <p>Figure 1: Relationship between elevation (m) and allelic richness (AR) across 13 populations of E. leuraensis individuals in the Newnes Plateau and Blue Mountains of New South Wales, Australia.</p>
 <p>There is also a significant relationship between expected heterozygosity (Hs) and elevation (Linear regression: Df=1,11, R2=0.54, P=0.0038) (Figure 2), with expected heterozygosity increasing with higher elevation. Therefore, I reject the null hypothesis that the linear relationship between expected heterozygosity (Hs) and elevation is equal to 0. A 95% confidence interval for the slope is (+/- 1174.62, 322.69). A post hoc priori power analysis on expected heterozygosity (Power=0.90), showed that an adequate number of replicates were used in this experiment.</p>
+<blockquote>
 <p>plot(Lizard_data<span class="math inline">\(Elevation,Lizard_data\)</span>Hs, xlab='Elevation (m)',ylab='Hs',col='green') abline(Lizard_data<span class="math inline">\(Elevation,Lizard_data\)</span>Hs) mymodel&lt;-lm(Elevation~Hs,data=Lizard_data) abline(mymodel) anova(mymodel) summary(mymodel) plot(mymodel)</p>
+</blockquote>
 </div>
 <div id="figure-2-caption" class="section level2">
 <h2>Figure 2 Caption</h2>

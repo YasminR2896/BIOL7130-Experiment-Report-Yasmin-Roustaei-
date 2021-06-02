@@ -3,8 +3,8 @@ title: "BIOL7130 Experiment Report"
 author: "Yasmin Roustaei"
 date: "2 June 2021"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 ---
 
 ##Title
@@ -103,15 +103,15 @@ showed that an adequate number of replicates were used in this experiment.
 
 ```{r Plot1, echo=FALSE}
 ```
-View(Lizard_data)
-plot(Lizard_data$Elevation,Lizard_data$AR, xlab='Elevation',ylab='AR',col='green')
-plot(Lizard_data$Elevation,Lizard_data$AR, xlab='Elevation (m)',ylab='AR',col='green')
-abline(Lizard_data$Elevation,Lizard_data$AR)
-mymodel<-lm(Elevation~AR,data=Lizard_data)
-mymodel<-lm(Elevation~AR,data=Lizard_data)
-abline(mymodel)
-anova(mymodel)
-summary(mymodel)
+>View(Lizard_data)
+>plot(Lizard_data$Elevation,Lizard_data$AR, xlab='Elevation',ylab='AR',col='green')
+>plot(Lizard_data$Elevation,Lizard_data$AR, xlab='Elevation (m)',ylab='AR',col='green')
+>abline(Lizard_data$Elevation,Lizard_data$AR)
+>mymodel<-lm(Elevation~AR,data=Lizard_data)
+>mymodel<-lm(Elevation~AR,data=Lizard_data)
+>abline(mymodel)
+>anova(mymodel)
+>summary(mymodel)
 
 ##Figure 1 Caption
 Figure 1: Relationship between elevation (m) and allelic richness (AR) across 13 populations
@@ -130,13 +130,13 @@ used in this experiment.
 
 ```{r Plot2, echo=FALSE}
 ```
-plot(Lizard_data$Elevation,Lizard_data$Hs, xlab='Elevation (m)',ylab='Hs',col='green')
-abline(Lizard_data$Elevation,Lizard_data$Hs)
-mymodel<-lm(Elevation~Hs,data=Lizard_data)
-abline(mymodel)
-anova(mymodel)
-summary(mymodel)
-plot(mymodel)
+>plot(Lizard_data$Elevation,Lizard_data$Hs, xlab='Elevation (m)',ylab='Hs',col='green')
+>abline(Lizard_data$Elevation,Lizard_data$Hs)
+>mymodel<-lm(Elevation~Hs,data=Lizard_data)
+>abline(mymodel)
+>anova(mymodel)
+>summary(mymodel)
+>plot(mymodel)
 
 
 ##Figure 2 Caption
