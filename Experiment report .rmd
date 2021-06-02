@@ -1,0 +1,245 @@
+---
+title: "BIOL7130 Experiment Report"
+author: "Yasmin Roustaei"
+date: "2 June 2021"
+output:
+  word_document: default
+  html_document: default
+---
+
+##Title
+Effects of mountain elevation on the genetic diversity of Blue 
+Mountains Water Skink (Eulamprus leuraensis) 
+
+##Abstract
+Species can respond to global climate change in several different ways, either by persisting in 
+their current environment, migrating, or going extinct. However, with species such as the 
+Blue Mountains Water Skink (Eulamprus leuraensis) that are habitat specialists and restricted 
+to montane habitats, migrating, or persisting in new environments may prove difficult. Using 
+the dataset from Dubey and Shine (2010) consisting of 241 individuals and 13 populations, I
+investigate the effects of mountain elevation on the genetic diversity of Eulamprus leuraensis
+species. I find a significant relationship between allelic richness (AR) and mountain elevation 
+(P=0.0022), with allelic richness increasing with higher elevation. I also find a significant 
+relationship between expected heterozygosity (Hs) and elevation (P=0.0038), with expected 
+heterozygosity increasing with higher elevation. These findings suggest restricted gene flow 
+caused by genetic drift among populations, explaining higher genetic diversity at higher 
+elevation sites than lower elevation sites. The significance of these findings can predict 
+current and potential future trends to a population’s gene flow and spatial genetic structure 
+under changing landscape and environmental variables. Knowledge of such trends can guide 
+conservation managers in facilitating appropriate strategies in preventing climate-induced 
+extinction of these endangered populations. 
+
+
+##Introduction
+Global climate change is ranked as the most significant threat to biodiversity (Radchuk et al. 
+2019). Such impacts may well initiate fragmentation, resulting in reduced population size and 
+limited dispersal, and thereby leading to a loss of genetic diversity and gene flow (Radchuk et 
+al. 2019). However, accurately predicting how species and populations respond to climate 
+change remains a difficult task as they can respond in several different ways, either by 
+persisting in their current environment, migrating, or going extinct (Coretes 2016). But 
+considering species that are already restricted to montane habitats, migrating may not be an 2
+option (Razgour 2015). Consistent with that prediction, persistence in new environments may 
+prove difficult for species such as reptiles and amphibians that have low thermal tolerances 
+making them sensitive to climate change (Razgour 2015). 
+
+The Blue Mountains water skink (Eulamprus leuraensis) is one example of such a taxa that 
+exhibits low thermal tolerances and is restricted to montane habitats (Dubey et al. 2013; 
+Gorisen et al. 2016). E. leuraensis is a medium-sized (up to 20cm in length) skink found in 
+the family Scincidae (Dubey et al. 2013). The species are found only in 30 isolated swamps at 
+560-1060m elevations across the Newnes Plateau and the Blue Mountains of New South 
+Wales Australia. Because the species is restricted to montane areas of high elevations, it may 
+put them at greater risk from global climate change (Dubey et al. 2013). Lower rainfall and 
+higher temperatures are predicted at higher elevations, which can have negative consequences 
+on the lizard’s habitat as reduced rainfall and higher temperatures can dry out the hanging 
+swamps (Dubey and Shine, 2010). Because of the species restricted distribution and ongoing 
+threats, they are classified as endangered under the Environmental Protection and 
+Biodiversity Conservation Act 1999 and the Threatened Species Conservation Act 1995
+(Dubey and Shine, 2010). 
+
+Using the dataset from Dubey and Shine (2010) consisting of 241 individuals and 13 
+populations, I aim to investigate the effects of mountain elevation on the genetic diversity of 
+E. leuraensis species. Based on the information from the literature, I hypothesise that there 
+will be a difference in the genetic diversity of E. leuraensis populations between mountain 
+elevations. I predict that allelic richness will be lower in higher elevations than lower 
+elevations. I also predict that expected heterozygosity will be lower in higher elevations than 
+lower elevations.
+
+
+##Methods
+Data
+In this study, I used the data obtained from Dubey and Shine (2010) study comprising of 
+Eulamprus leuraensis individuals provided to me by Associate Professor Adam Stow. The 
+data set consists of 241 individuals and 13 populations across the Blue Mountains and 
+Newnes Plateau of New South Wales, Australia. 
+
+Statistical Analyses
+All statistical analyses were performed using the software package R version (3.1.0) (R 
+Development Core Team 2015). Linear regression was used to assess the relationship 
+between the independent variables (elevation: levels 500, 600, 700, 800, 900, 1000, 1100 
+metres) and the dependent variables (genetic diversity: levels allelic richness and expected 
+heterozygosity). The statistical null hypothesis for linear regression is that the linear 
+relationship between Y (allelic richness and expected heterozygosity) and X (elevation) is 
+equal to 0. The alternative hypothesis is that the linear relationship between Y (allelic 
+richness and expected heterozygosity) and X (elevation) is not equal to 0. 
+Assumptions of linear regression are independence of data within and among samples, X 
+variable is measured without error, normality of the residuals about the fitted line, m X + b, 
+homogeneity of variances for residuals about the fitted line m X + b, and a linear relationship. 
+To ensure that this study includes an adequate number of replicates given logical constraints a 
+post-hoc priori power analyses were undertaken on both measurement variables (allelic 
+richness and expected heterozygosity). An arcsin square root-transformation was conducted 
+on allelic richness (dependent) and elevation (independent) variables, to ensure the logtransformed data follow a log-normal distribution. However, expected heterozygosity 
+(dependent) and elevation (independent) did not need to be log-transformed as they followed
+a normal distribution.
+
+
+##Results
+There is a significant relationship between allelic richness (AR) and mountain elevation
+(Linear regression: Df=1,11, R2=0.59, P=0.0022), with allelic richness increasing with higher 
+elevation (Figure 1). Therefore, I reject the null hypothesis that the linear relationship 
+between allelic richness and elevation is equal to 0. A 95% confidence interval for the slope 
+is (+/- 0.111, 0.074). A post hoc priori power analysis on allelic richness (Power=0.90), 
+showed that an adequate number of replicates were used in this experiment.
+
+
+```{r Plot1, echo=FALSE}
+```
+View(Lizard_data)
+plot(Lizard_data$Elevation,Lizard_data$AR, xlab='Elevation',ylab='AR',col='green')
+plot(Lizard_data$Elevation,Lizard_data$AR, xlab='Elevation (m)',ylab='AR',col='green')
+abline(Lizard_data$Elevation,Lizard_data$AR)
+mymodel<-lm(Elevation~AR,data=Lizard_data)
+mymodel<-lm(Elevation~AR,data=Lizard_data)
+abline(mymodel)
+anova(mymodel)
+summary(mymodel)
+
+##Figure 1 Caption
+Figure 1: Relationship between elevation (m) and allelic richness (AR) across 13 populations
+of E. leuraensis individuals in the Newnes Plateau and Blue Mountains of New South Wales, 
+Australia. 
+
+
+There is also a significant relationship between expected heterozygosity (Hs) and elevation
+(Linear regression: Df=1,11, R2=0.54, P=0.0038) (Figure 2), with expected heterozygosity 
+increasing with higher elevation. Therefore, I reject the null hypothesis that the linear 
+relationship between expected heterozygosity (Hs) and elevation is equal to 0. A 95% 
+confidence interval for the slope is (+/- 1174.62, 322.69). A post hoc priori power analysis on 
+expected heterozygosity (Power=0.90), showed that an adequate number of replicates were 
+used in this experiment.
+
+
+```{r Plot2, echo=FALSE}
+```
+plot(Lizard_data$Elevation,Lizard_data$Hs, xlab='Elevation (m)',ylab='Hs',col='green')
+abline(Lizard_data$Elevation,Lizard_data$Hs)
+mymodel<-lm(Elevation~Hs,data=Lizard_data)
+abline(mymodel)
+anova(mymodel)
+summary(mymodel)
+plot(mymodel)
+
+
+##Figure 2 Caption
+Figure 2: Relationship between elevation (m) and expected heterozygosity (Hs) across 13 
+populations of E. leuraensis individuals in the Newnes Plateau and Blue Mountains of New 
+South Wales, Australia. 
+
+
+Both plots illustrate an approximately linear relationship between allelic richness and 
+elevation and expected heterozygosity and elevation, even though one outlier was detected in 
+each dataset (Figure 3 and 4). This suggests that the assumption the relationship is linear is 
+reasonable. It also illustrates that the variation around the estimated regression line is constant 
+suggesting that the assumption of equal variances is reasonable. The assumption of normality 
+also seems reasonable as values follow a reasonably straight line.
+
+##Figure 3 Caption
+Figure 3: Normal qqplot illustrating the relationship between elevation and allelic richness 
+(AR). 
+
+##Figure 4 Caption 
+Figure 4: Normal qqplot illustrating the relationship between elevation and expected 
+heterozygosity (Hs) 
+
+##Discussion
+Previously, I hypothesized that there will be a difference in genetic diversity of E. leuraensis 
+populations between elevations. I predicted that both allelic richness (AR) and expected 
+heterozygosity (Hs) will be lower in higher elevations than lower elevations. However, my 
+results did not support my predictions and revealed that both allelic richness (AR) and 
+expected heterozygosity (Hs) was higher in higher elevations than lower elevations across the 
+13 populations. My results are consistent with the findings of Polato et al. (2017) in their 
+study of montane mayflies revealing higher genetic diversity at higher elevations than lower 
+elevations. The findings from Polato et al. (2017) study, as well as the findings from my 
+research, suggests reduced gene flow separated by either genetic drift or topographical 
+barriers amongst population sites. Indeed, E. leuraensis populations are restricted to 30 
+isolated swamps separated by about 20km in two distinct patches (in the Newnes Plateau and 
+the Blue Mountains) resulting in population fragmentation and thereby leading to reduced 
+gene flow and genetic differentiation (Dubey and Shine, 2010). 
+
+The reduced gene flow of remnant populations of E. leuraensis has considerable
+consequences for the conservation of this endangered species (Coretest 2016; Cushman and 
+Landguth, 2010). Because my study showed higher genetic diversity at high-elevation sites,
+E. leuraensis populations are expected to be at higher risk of climate-induced extinction due 
+to limited amounts of genetic variation and lower effective population size (Radchuk et al. 
+2019). Climate variation models predict that E. leuranesis habitats will become drier (by up 
+to 40%) and warmer (by up to 5 degrees C) within the next century (Razgour 2015). Such 
+changes can have cascading consequences on the lizards and their montane habitats, via an 
+increase in bushfire intensity and frequency, and their swamps drying out (Dubey and Shine, 
+2010; Gorisen et al. 2016). Furthermore, E. leuranesis are also specialist species, making 
+them more sensitive to environmental changes, thus their conservation remains an urgent 
+priority (Dubey and Shine, 2010). 
+
+As E. leuraensis are an endangered species, previous research has suggested habitat 
+colonization as a potential conservation strategy (Gorisen et al. 2016). However, this method 
+may not be possible as E. leuraensis populations inhabit high elevations, hence future work 
+should consider habitat corridors as a potential alternative (Ramiadantsoa et al. 2015). The 
+success of habitat corridors has been demonstrated in Ramiadantsoa et al. (2015) study 
+revealing increased viability and landscape connectivity of fragmented populations in 8
+Madagascar. Future work should also consider the effects of elevation on the genetic 
+diversity of different species and taxa, including their physiological responses to different 
+elevations (Segelbacher et al. 2010). One of the limitations of this study was that it only 
+focused on the effects of mountain elevation on the genetic diversity of one species. 
+Addressing the effects of elevational gradients in different species and taxa will be an 
+important next step in further research into species vulnerability to elevational range shifts 
+and climate change (Polato et al. 2017). 
+
+
+##Acknowledgements 
+I would like to thank Associate Professor Adam Stow and Dr Rachael Dudaniec for providing 
+me with the data and their assistance with my Year 2 project. I would also like to thank Dr 
+Drew Allen for their assistance with making the statistical models.
+
+
+##References
+Coretes, A.J. (2016) Local Scale Genetic Diversity and its Role in Coping with Changing 
+Climate. Genetic Diversity. 1, 1-12. 
+Cushman, S.A. and Landguth, E.L. (2010) Spurious correlations and inference in landscape 
+genetics. Molecular Ecology. 19(1), 3592-3602. 
+Dubey, S., Sinsch, U., Dehling, M.J., Chevalley, M. and Shine, R. (2013) Population 
+demography of an endangered lizard, the Blue Mountains Water Skink. BMC Ecology. 13, 1-
+12. 
+Dubey, S. and Shine, R. (2010) Restricted dispersal and genetic diversity in populations of an 
+endangered montane lizard (Eulamprus leuraensis, Scincidae). Molecular Ecology. 19, 886-
+897. 
+Gorissen, S., Greenlees, M. and Shine, R. (2016) A skink out of water: impacts of 
+anthropogenic disturbance on an Endangered reptile in Australian highland swamps. Pacific 
+Conservation Biology. 51, 1-16. 9
+Olah, G., Smith, A.L., Asner, G.P., Brightsmith, D.J., Heinsohn, R.G. and Peakall, R. (2016) 
+Exploring dispersal barriers using landscape genetic resistance modelling in scarlet macaws
+of the Peruvian Amazon. Landscape Ecology. 32(1), 445-456. 
+Polato et al. (2017) Genetic diversity and gene flow decline with elevation in montane 
+mayflies. Heredity. 119, 107-116. 
+Radchuk et al. (2019) Adaptive responses of animals to climate change are most likely 
+insufficient. Nature Communications. 10, 1-14. 
+Ramiadantsoa, R., Ovaskainen, O., Rybicki, J. and Hanski, I. (2015) Large-Scale Habitat 
+Corridors for Biodiversity Conservation: A Forest Corridor in Madagascar. Plos One. 10(7), 
+1-18. 
+Razgour, O. (2015) Beyond species distribution modeling: A landscape genetics approach to 
+investigating range shifts under future climate change. Ecological Informatics. 30, 250-256. 
+R Core Team (2019). R: A language and environment for statistical computing. R Foundation 
+for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.
+Segelbacher, G., Cusman, S.A., Epperson, B.K., Fortin, M.J., Francois, O., Hardy, O.J., 
+Holderegger, R., Taberleet, P., Waits, L.P. and Manel, S. (2010) Applications of landscape 
+genetics in conservation biology: concepts and challenges. Conservation Genetics. 11, 375-
+385.
+
+
